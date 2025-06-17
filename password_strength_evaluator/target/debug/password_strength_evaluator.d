@@ -1,0 +1,1 @@
+C:\intellectualgirlypop\Password-Strength-Evaluator\password_strength_evaluator\target\debug\password_strength_evaluator.exe: C:\intellectualgirlypop\Password-Strength-Evaluator\password_strength_evaluator\src\main.rs
