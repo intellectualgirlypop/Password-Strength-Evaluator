@@ -1,5 +1,4 @@
-use std::io;
-
+// current issue, only reads letters and not numbers 
 fn main() {
     let mut user_input = String::new(); 
     println!("Please enter password for testing:"); 
