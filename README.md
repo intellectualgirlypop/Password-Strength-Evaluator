@@ -13,7 +13,7 @@ Utilizes Rust to analyze password strength by flagging common vulnerabilities an
 ## Core Components 
 🐸 prompts user for password 
 🐸 checks for basic features of a good password:
--length, use of upper and lower case 
+-length, use of upper and lower case <>
 -use of numerical characters 
 -use of special characters 
 -ensuring no patterns or common passwords 
@@ -22,4 +22,5 @@ Utilizes Rust to analyze password strength by flagging common vulnerabilities an
 
 
 ## Things I Learned 
+-git is NOT to be played with omg i almost cried trying to figure out an ssh key issue 
 
