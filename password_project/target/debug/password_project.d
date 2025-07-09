@@ -1,0 +1,1 @@
+C:\Users\trini\intellectualgirlypop.2\Password-Strength-Evaluator\password_project\target\debug\password_project.exe: C:\Users\trini\intellectualgirlypop.2\Password-Strength-Evaluator\password_project\src\main.rs
