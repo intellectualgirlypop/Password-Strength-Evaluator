@@ -26,6 +26,8 @@ fn main() {
 
     if found{
         println!("❌ This password is weak. Score = 0. \nPlease try again.");
+    }else if password.len() <12 && !found {
+        println!("😓Password is unique but is <12 characters.\nPlease try again.");
     }else{
         println!("✅Password accepted, generating strength score...");
     }
