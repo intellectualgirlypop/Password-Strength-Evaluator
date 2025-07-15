@@ -1,20 +1,34 @@
 // current issue, only reads letters and not numbers 
-use std::io; 
+use std::io::{self,BufRead, BufReader};
+use std::fs::File; 
 fn main() {
     let mut user_input = String::new(); 
     println!("Please enter password for testing:"); 
 
     io::stdin().read_line(&mut user_input)
         .expect("Failed to read password");
-    println!("The Password you entered is: '{}', ...Checking password strength...", user_input.trim());
     let password = user_input.trim();
-    let bad_password = r"password_project\attributes.txt";{
-        if bad_password.contains(password){
-        println!("❌ This password is too generic. Score = 0. 
-        Please try again")
-        }else{
-        println!("✅ Password accepted, evaluating further ...")
+    println!("The Password you entered is: '{}', ...Checking password strength...", user_input.trim());
+    // fixed problem here , file wasnt opening from relative or complete path, not sure why this was the fix but it works for rn
+    let file = File::open("attributes.txt")
+        .expect("Failed to open file provided");
+    let reader = BufReader::new(file);
+
+    let mut found = false;
+    for line in reader.lines(){
+        if let Ok(bad) = line{
+            if bad.trim() == password{
+                found = true;
+                break;
+            }
+        }
     }
+
+    if found{
+        println!("❌ This password is weak. Score = 0. \nPlease try again.");
+    }else{
+        println!("✅Password accepted, generating strength score...");
     }
+
 }
 
