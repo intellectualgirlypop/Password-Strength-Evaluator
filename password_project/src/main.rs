@@ -23,14 +23,26 @@ fn main() {
             }
         }
     }
-
-    if found{
-        println!("❌ This password is weak. Score = 0. \nPlease try again.");
-    }else if password.len() <12 && !found {
-        println!("😓Password is unique but is <12 characters.\nPlease try again.");
-    }else{
-        println!("✅Password accepted, generating strength score...");
+    let add1 = File::open("special_char.txt")
+        .expect("Failed to open file provide");
+    let reader2 = BufReader::new(add1);
+// change here to parse like at all. 
+    let mut foundspec = false;
+    for line in reader2.lines(){
+        if let Ok(bad) = line{
+            if bad.trim() == password{
+                foundspec = true;
+                break;
+            }
+        }
     }
-
+// change for better logic 
+    if found{
+        println!("❌ This password is generic. Score = 0. \nPlease try again.");
+    }else if password.len() >11 && foundspec{
+            println!("Password accepted ✅! generating score..");
+    } else {
+    println!(" Password is weak but not generic. Not long enough or lacks special characters.");
+}
 }
 
