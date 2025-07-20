@@ -37,6 +37,9 @@ fn main() {
 
 
    let foundspec = password.chars().any(|c| special_chars.contains(c));
+   let has_upper = password.chars().any(|c| c.is_ascii_uppercase());
+   let has_lower = password.chars().any(|c| c.is_ascii_lowercase());
+   let has_number = password.chars().any(|c| c.is_ascii_digit());
 // change for better logic 
     if found{
         println!("❌ This password is generic. generating score ...");
@@ -57,18 +60,35 @@ fn main() {
     if !found{
         score += 1;
     }
+    if has_lower{
+        score +=1
+    }
+    if has_upper{
+        score +=1
+    }
+    if has_number{
+        score+=1
+    }
 
     match score{
-        3 => {
+        6 => {
             println!("✅ strong password, you are good to go!.\nSCORE = 100%");
             break;
+        }, 
+        5=> {
+            println!("(●'◡'●) Alomst there !try again!.\nSCORE = 80% ");
+            continue;
         },
-        2 => {
+        3..=4=> {
             println!("🟡 password is medium strength, try again!.\nSCORE = 60% ");
             continue;
         },
+        2 => {
+            println!("🔴 password is weak, try again!.\nSCORE = 40% ");
+            continue;
+        },
         1 => {
-            println!("🔴 very weak password. Boo.\nSCORE = 30%");
+            println!("🔴 very weak password. Boo.\nSCORE = 20%");
             continue;
         },
         _ => {
