@@ -43,11 +43,11 @@ fn main() {
 // change for better logic 
     if found{
         println!("❌ This password is generic. generating score ...");
-        sleep(Duration::from_secs(3));
+        sleep(Duration::from_secs(2));
     }else if
         password.len() >=12 && foundspec{
             println!("Password accepted ✅! generating score..");
-            sleep(Duration::from_secs(3));
+            sleep(Duration::from_secs(2));
     };
 
     let mut score =0;
