@@ -1,6 +1,8 @@
 // current issue, only reads letters and not numbers 
 use std::io::{self,BufRead, BufReader};
 use std::fs::File; 
+use std::thread::sleep;
+use std::time::Duration;
 fn main() {
     loop{
     let mut user_input = String::new(); 
@@ -38,11 +40,12 @@ fn main() {
 // change for better logic 
     if found{
         println!("❌ This password is generic. generating score ...");
-    }else if password.len() >=12 && foundspec{
+        sleep(Duration::from_secs(3));
+    }else if
+        password.len() >=12 && foundspec{
             println!("Password accepted ✅! generating score..");
-    } else {
-    println!(" Password is weak but not generic. Not long enough or lacks special characters.");
-    }
+            sleep(Duration::from_secs(3));
+    };
 
     let mut score =0;
     if password.len() >= 12{
@@ -75,4 +78,5 @@ fn main() {
     }
 }
 }
+
 
